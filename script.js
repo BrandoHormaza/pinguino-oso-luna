@@ -83,34 +83,28 @@ function createScene() {
     textContainer.classList.add('text-container');
     textContainer.innerHTML = `
         <h1>Laura, mi vida, mi amor mi cielo:</h1>
-        <p>Juntos en el frío, pero con el corazón cálido.<p>
+        
+        <p>Juntos en el frío, pero con el corazón cálido.</p>
         
         <p>desde que decidimos dar este paso han sido dos meses, 61 días, 1460 horas contigo donde 
         los inconvenientes nos han hecho más fuertes
-        estoy aprendiendo a ser una mejor persona, es como si tu amor hubiera 
+        estoy aprendiendo aser una mejor persona, es como si tu amor hubiera 
         curado algo dentro de mi.
         día a día me despierto y lo único que quiero es hablarte saber de ti, verte.
         
-        cada día junto a ti es un regalo y una bendición de la vida, quiero que seas mi 
-        San Valentín<p> 
-        
-        <p>mi vida entera, que seas mi motivación, mi felicidad mi alma gemela, que sean mil millones de horas más 
+        cada día junto a ti es un regalo y una bendición de la vida, quiero que seas mi San Valentín, 
+        mi vida entera, que seas mi motivación, mi felicidad mi alma gemela, que sean mil millones de horas más 
         juntos.
         
         se que cada decisión y altibajo nos han traído aqui, sigamos juntos, 
         no quiero ver otros ojos, no quiero agarrar otras manos que no sean las tuyas, solo quiero escuchar tu voz,
         sentir tu aroma y que me sigas alimentando el corazon con tu amor y llenandome la vida de felicidad.
 
-        todos mis planes son contigo, solo quiero ser parte de tuvida y ser quien cause esa sonrisa tan bonita que me tiene tan enamorado.
+        todos mis planes son contigo, solo quiero ser parte de tuvida y ser quien cause esa sonrisa tan bonita que me tien muy enamorado.
 
         me encantas mi vida!!!
-
-        Te amo Feliz Día.</p>
+        <p>Te amo. Feliz Día ❤️</p>
     `;
-    textContainer.style.position = 'absolute';
-    textContainer.style.top = '30%';
-    textContainer.style.left = '30%';
-    textContainer.style.transform = 'translate(-50%, -50%)';
     document.body.appendChild(textContainer);
 
     // Ajustar la animación del texto
@@ -133,7 +127,6 @@ function createScene() {
 const audio = document.createElement('audio');
 audio.src = 'Locos - Leon larregui (Letra).mp3'; // Ubicación del archivo de música
 audio.loop = true;
-audio.autoplay = true;
 audio.volume = 0.2;
 document.body.appendChild(audio);
 
@@ -150,9 +143,63 @@ musicButton.onclick = () => {
 };
 document.body.appendChild(musicButton);
 
-// Estilos para los corazones animados
+// Estilos para móviles
 document.head.insertAdjacentHTML('beforeend', `
     <style>
+        body {
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .text-container {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            width: 90%;
+            max-width: 500px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        /* Ajustes de personajes */
+        .characters {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .character {
+            width: 100px;
+            height: auto;
+        }
+
+        #penguin {
+            width: 120px;
+        }
+
+        #polarBear {
+            width: 140px;
+        }
+
+        /* Corazones animados */
         .heart {
             position: absolute;
             bottom: 0;
@@ -160,16 +207,19 @@ document.head.insertAdjacentHTML('beforeend', `
             color: red;
             animation: floatUp 3s linear infinite;
         }
+
         @keyframes floatUp {
             0% { transform: translateY(0); opacity: 1; }
             100% { transform: translateY(-200px); opacity: 0; }
         }
+
+        /* Botón de música */
         .music-button {
             position: absolute;
             bottom: 20px;
             right: 20px;
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 16px;
             border: none;
             background: #ff6b81;
             color: white;
@@ -177,8 +227,42 @@ document.head.insertAdjacentHTML('beforeend', `
             cursor: pointer;
             transition: background 0.3s;
         }
+
         .music-button:hover {
             background: #ff4757;
+        }
+
+        /* Ajustes específicos para móviles */
+        @media (max-width: 768px) {
+            .text-container {
+                font-size: 14px;
+                top: 35%;
+                width: 85%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .characters {
+                bottom: 10%;
+            }
+
+            .character {
+                width: 80px;
+            }
+
+            #penguin {
+                width: 100px;
+            }
+
+            #polarBear {
+                width: 120px;
+            }
         }
     </style>
 `);

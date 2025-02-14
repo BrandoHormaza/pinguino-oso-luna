@@ -12,6 +12,8 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
 }
 
@@ -23,21 +25,21 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 30px; /* Reducido para centrar más los personajes */
-    bottom: 20px; /* Más cerca de la parte inferior */
+    gap: 20px; /* Reducido para móviles */
+    bottom: 10px;
 }
 
 /* Luna en el cielo */
 .moon {
     position: absolute;
-    top: 10%; /* Ajustado para que el texto quepa mejor */
+    top: 8%; /* Ajustado para móviles */
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Tamaño aumentado */
-    height: 80px;
+    width: 60px; /* Tamaño reducido para pantallas pequeñas */
+    height: 60px;
     background: radial-gradient(circle, #f5f3ce, #b0a87f);
     border-radius: 50%;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 /* Contenedor de los personajes */
@@ -49,52 +51,81 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 30px;
+    gap: 15px; /* Espacio reducido para móviles */
 }
 
 /* Configuración de los sprites pixel-art */
 .character {
-    width: 220px;
-    height: 220px;
+    width: 180px; /* Tamaño base más pequeño */
+    height: auto;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 /* Ajustes individuales */
 #penguin {
-    width: 240px;
-    height: 240px;
+    width: 200px;
 }
 
 #polarBear {
-    width: 260px;
-    height: 400px;
+    width: 220px;
+    height: 320px;
 }
 
 /* Texto centrado */
 .text-container {
     position: absolute;
-    top: 50%; /* Centrado verticalmente */
+    top: 45%; /* Ajustado para mejor visibilidad */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     font-family: 'Dancing Script', cursive;
     animation: fadeIn 2s ease-in-out infinite alternate;
+    width: 90%; /* Para que no se corte en móviles */
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 36px; /* Reducido para móviles */
     margin: 0;
 }
 
 p {
-    font-size: 24px;
-    margin-top: 10px;
+    font-size: 18px; /* Tamaño más accesible */
+    margin-top: 8px;
 }
 
 /* Animación para el texto */
 @keyframes fadeIn {
     0% { opacity: 0.7; transform: translateY(0); }
     100% { opacity: 1; transform: translateY(-5px); }
+}
+
+/* 🔹 Ajustes específicos para móviles */
+@media (max-width: 768px) {
+    .character {
+        width: 120px; /* Reducido en pantallas pequeñas */
+    }
+
+    #penguin {
+        width: 140px;
+    }
+
+    #polarBear {
+        width: 160px;
+        height: 250px;
+    }
+
+    .text-container {
+        font-size: 14px;
+        top: 40%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
 }
