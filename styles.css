@@ -1,0 +1,100 @@
+/* Reset básico */
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #1a1a2e;
+    image-rendering: pixelated;
+}
+
+/* Configuración del canvas */
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Contenedor principal de la escena */
+.scene {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px; /* Reducido para centrar más los personajes */
+    bottom: 20px; /* Más cerca de la parte inferior */
+}
+
+/* Luna en el cielo */
+.moon {
+    position: absolute;
+    top: 10%; /* Ajustado para que el texto quepa mejor */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Tamaño aumentado */
+    height: 80px;
+    background: radial-gradient(circle, #f5f3ce, #b0a87f);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Contenedor de los personajes */
+.characters {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+/* Configuración de los sprites pixel-art */
+.character {
+    width: 220px;
+    height: 220px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Ajustes individuales */
+#penguin {
+    width: 240px;
+    height: 240px;
+}
+
+#polarBear {
+    width: 260px;
+    height: 400px;
+}
+
+/* Texto centrado */
+.text-container {
+    position: absolute;
+    top: 50%; /* Centrado verticalmente */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    animation: fadeIn 2s ease-in-out infinite alternate;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+p {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+/* Animación para el texto */
+@keyframes fadeIn {
+    0% { opacity: 0.7; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-5px); }
+}
